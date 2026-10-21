@@ -1,0 +1,682 @@
+[
+  {
+    "id": "course_prereq_cs402",
+    "question": "What are the prerequisites for CS402?",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [
+      "CS402",
+      "Machine Learning",
+      "CS303",
+      "MATH202"
+    ]
+  },
+  {
+    "id": "student_eligibility_cs402",
+    "question": "Can student 1001 take CS402 next semester?",
+    "expected_routes": [
+      "course_tool",
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [
+      "1001",
+      "CS402",
+      "MATH202",
+      "not eligible"
+    ]
+  },
+  {
+    "id": "student_degree_remaining",
+    "question": "How many credits does student 1001 still need for the degree?",
+    "expected_routes": [
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [
+      "1001",
+      "25",
+      "remaining"
+    ]
+  },
+  {
+    "id": "combined_prereq_policy",
+    "question": "Can student 1001 take CS402 and what policy applies to prerequisite overrides?",
+    "expected_routes": [
+      "rag_search",
+      "course_tool",
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db",
+      "UGProspectus_2024.pdf"
+    ],
+    "must_include": [
+      "CS402",
+      "MATH202"
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "Synthetic student 1001 lacks MATH202 for CS402."
+        ]
+      },
+      {
+        "source": "UGProspectus_2024.pdf",
+        "pdf_pages": [
+          17
+        ],
+        "required_facts": [
+          "Clause 6.5.4(b) requires studied/qualified prerequisites for registration. It does not specify an override procedure."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Do not invent an override process. Distinguish the synthetic database from official policy."
+    ]
+  },
+  {
+    "id": "course_search_ml_name",
+    "question": "Tell me about Machine Learning course credits and prerequisites.",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [
+      "CS402",
+      "3",
+      "CS303",
+      "MATH202"
+    ]
+  },
+  {
+    "id": "student_profile_1002",
+    "question": "Show student 1002 degree progress.",
+    "expected_routes": [
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [
+      "1002",
+      "BS Software Engineering",
+      "remaining"
+    ]
+  },
+  {
+    "id": "admission_requirements",
+    "question": "What are the undergraduate admission requirements?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "admission_form_process",
+    "question": "What is the admission form submission process?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "admission_documents",
+    "question": "What documents are required for undergraduate admission?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "photograph_requirement",
+    "question": "What is the application photograph requirement?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "after_entry_test",
+    "question": "What happens after passing the pre-admission entry test?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "entry_test_marks",
+    "question": "What are the passing marks in the entry test?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": []
+  },
+  {
+    "id": "added_cs401_prerequisites",
+    "question": "What are the prerequisites for CS401?",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "CS401"
+      ],
+      [
+        "Artificial Intelligence"
+      ],
+      [
+        "CS303"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS401 is Artificial Intelligence, 3 credits; prerequisite CS303."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_cs305_prerequisites",
+    "question": "What are the prerequisites for CS305?",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "CS305"
+      ],
+      [
+        "Computer Networks"
+      ],
+      [
+        "CS203"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS305 is Computer Networks, 3 credits; prerequisite CS203."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_math202_prerequisites",
+    "question": "What are the prerequisites for MATH202?",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "MATH202"
+      ],
+      [
+        "Probability and Statistics"
+      ],
+      [
+        "MATH102"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "MATH202 is Probability and Statistics, 3 credits; prerequisite MATH102."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_student1002_se401",
+    "question": "Can student 1002 take SE401 based on completed prerequisites?",
+    "expected_routes": [
+      "course_tool",
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "1002"
+      ],
+      [
+        "SE401"
+      ],
+      [
+        "SE301"
+      ],
+      [
+        "eligible",
+        "satisfied",
+        "meets",
+        "can take"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "SE401 is DevOps and Cloud Computing, requiring SE301; student 1002 completed SE301. Eligibility is prerequisite-based only, not a guarantee of timetable availability."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_student1001_cs403",
+    "question": "Can student 1001 take CS403 based on completed prerequisites?",
+    "expected_routes": [
+      "course_tool",
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "1001"
+      ],
+      [
+        "CS403"
+      ],
+      [
+        "CS305"
+      ],
+      [
+        "not eligible",
+        "ineligible",
+        "missing",
+        "cannot"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS403 Information Security requires CS305; student 1001 has not completed CS305."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_unknown_course",
+    "question": "What are the prerequisites for CS999?",
+    "expected_routes": [
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "CS999"
+      ],
+      [
+        "not found",
+        "not in",
+        "no course",
+        "no record",
+        "does not exist",
+        "could not find",
+        "unknown",
+        "not available",
+        "not present"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS999 does not exist in the synthetic course catalogue; prerequisites cannot be established."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Do not invent a course or prerequisites."
+    ]
+  },
+  {
+    "id": "added_portal_account_recovery",
+    "question": "What does the admission FAQ advise if my email is already registered or I did not receive portal login details?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "CNIC"
+      ],
+      [
+        "spam",
+        "junk"
+      ],
+      [
+        "helpdesk",
+        "help desk"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "FAQ.pdf",
+        "pdf_pages": [
+          3
+        ],
+        "required_facts": [
+          "Check existing email/CNIC registration, junk/spam folder, and contact Helpdesk."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_self_finance_tuition",
+    "question": "According to the supplied admission FAQ, does paying the self-finance fee also cover tuition and admission fees?",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "self-finance",
+        "self finance"
+      ],
+      [
+        "tuition"
+      ],
+      [
+        "separate",
+        "in addition",
+        "does not",
+        "doesn't",
+        "not include"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "FAQ.pdf",
+        "pdf_pages": [
+          7
+        ],
+        "required_facts": [
+          "Self-finance is paid once with form submission; tuition/admission fees are paid separately at admission."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_cross_eligibility_registration",
+    "question": "Can student 1001 take CS402 based on completed prerequisites, and what does the supplied prospectus say about registering without the relevant prerequisites?",
+    "expected_routes": [
+      "rag_search",
+      "course_tool",
+      "student_tool"
+    ],
+    "expected_sources": [
+      "academic.db",
+      "UGProspectus_2024.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "1001"
+      ],
+      [
+        "CS402"
+      ],
+      [
+        "MATH202"
+      ],
+      [
+        "prerequisite",
+        "prerequisites"
+      ],
+      [
+        "not eligible",
+        "ineligible",
+        "missing"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS402 requires CS303 and MATH202; student 1001 lacks MATH202."
+        ]
+      },
+      {
+        "source": "UGProspectus_2024.pdf",
+        "pdf_pages": [
+          17
+        ],
+        "required_facts": [
+          "Clause 6.5.4(b) allows registration only for subjects whose relevant prerequisites have been studied/qualified."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Keep synthetic student data separate from official general policy.",
+      "Do not imply the synthetic CS402 code is verified in the official curriculum."
+    ]
+  },
+  {
+    "id": "added_cross_course_withdrawal",
+    "question": "What are the prerequisites for CS402 in the academic database, and what is the latest week for withdrawing from a course under the supplied prospectus?",
+    "expected_routes": [
+      "rag_search",
+      "course_tool"
+    ],
+    "expected_sources": [
+      "academic.db",
+      "UGProspectus_2024.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "CS402"
+      ],
+      [
+        "CS303"
+      ],
+      [
+        "MATH202"
+      ],
+      [
+        "8th",
+        "eighth",
+        "week 8",
+        "8th week"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "academic.db",
+        "required_facts": [
+          "CS402 requires CS303 and MATH202."
+        ]
+      },
+      {
+        "source": "UGProspectus_2024.pdf",
+        "pdf_pages": [
+          17
+        ],
+        "required_facts": [
+          "General withdrawal allowed up to week 8; no fee refund/adjustment, grade W; after week 8 no withdrawal requests."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Distinguish general eight-week withdrawal from the three-week additional-course change/withdrawal provision."
+    ]
+  },
+  {
+    "id": "added_cross_merit_signatures",
+    "question": "How is undergraduate admission merit calculated, and who must sign the printed application if my name appears in the merit list? Use the FAQ and admission guidelines.",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "FAQ.pdf",
+      "GuideLines.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "50%",
+        "50 percent",
+        "equal weight",
+        "equally"
+      ],
+      [
+        "parent",
+        "parents",
+        "guardian"
+      ],
+      [
+        "oath commissioner"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "FAQ.pdf",
+        "pdf_pages": [
+          3
+        ],
+        "required_facts": [
+          "Merit weights academic and entry-test results 50% each, with the stated completed-qualification qualification."
+        ]
+      },
+      {
+        "source": "GuideLines.pdf",
+        "pdf_pages": [
+          2
+        ],
+        "required_facts": [
+          "Candidate, parent/guardian and Oath Commissioner sign printed application; checklist documents submitted at scheduled interview."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  },
+  {
+    "id": "added_cross_premed_math",
+    "question": "For a Pre-Medical applicant seeking BS Computer Science admission, combine the prospectus eligibility conditions with the named non-credit mathematics subjects in the first-year PDF curriculum.",
+    "expected_routes": [
+      "rag_search"
+    ],
+    "expected_sources": [
+      "UGProspectus_2024.pdf",
+      "ned_departments_courses.pdf"
+    ],
+    "must_include": [],
+    "answer_term_groups": [
+      [
+        "Computer Science"
+      ],
+      [
+        "MT-001"
+      ],
+      [
+        "MT-002"
+      ]
+    ],
+    "source_references": [
+      {
+        "source": "UGProspectus_2024.pdf",
+        "pdf_pages": [
+          7
+        ],
+        "required_facts": [
+          "Pre-Medical applicants considered for allocated BS Computer Science seats subject to conditions and availability."
+        ]
+      },
+      {
+        "source": "ned_departments_courses.pdf",
+        "pdf_pages": [
+          21
+        ],
+        "required_facts": [
+          "First-year curriculum lists MT-001 Mathematics-1 and MT-002 Mathematics-2 for Pre-Medical."
+        ]
+      }
+    ],
+    "review_criteria": [
+      "Check the full answer against the reference facts; term coverage is not accuracy."
+    ]
+  }
+]

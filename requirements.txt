@@ -1,0 +1,36 @@
+# Core environment
+python-dotenv
+jupyter
+notebook
+
+# LangChain / LLM orchestration
+langchain
+langchain-community
+langchain-openai
+langchain-groq
+langchain-pinecone
+langchain-text-splitters
+langgraph
+
+# Document processing
+pypdf
+PyMuPDF
+beautifulsoup4
+requests
+
+# Retrieval and reranking
+rank-bm25
+sentence-transformers
+faiss-cpu
+pinecone-client
+
+# API backend
+fastapi
+uvicorn
+pydantic
+
+# Database / auth / cloud
+mysql-connector-python
+PyJWT
+boto3
+botocore

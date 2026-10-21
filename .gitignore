@@ -1,0 +1,37 @@
+# Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Generated indexes, models and build output
+vectorstore/
+.cache/
+models/
+node_modules/
+build/
+dist/
+*.egg-info/
+
+# Local evaluation output
+results.json
+evaluation_results*.json
+*.log
+
+# Editor and OS metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
